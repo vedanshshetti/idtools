@@ -1,6 +1,6 @@
 {
   "name": "@idtools/prod",
-  "version": "1.1.0",
-  "license": "MIT",
+  "version": "1.1.1",
+  "license": "Apache 2.0",
   "exports": "./src/index.ts"
 }
