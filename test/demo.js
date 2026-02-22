@@ -1,5 +1,5 @@
 // This is a demonstration of how to use the idtools library. It generates a few different types of IDs and logs them to the console.
-import idtools from "../src/index.js";
+import idtools from "../dist/index.js";
 
 const nanoidProd= idtools.nanoid.production();
 const nanoidNonSecure = idtools.nanoid.nonSecure();
