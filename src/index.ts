@@ -20,6 +20,22 @@ import { nanoid as nanoidNs } from "nanoid/non-secure";
 import { v1, v3, v4, v5, NIL } from "uuid";
 
 
+function smartID(use_case: "user_id" | "device_id" | "product_id" | "session_token"): string {
+    switch (use_case) {
+        case "user_id":
+            return v4();
+        case "device_id":
+            return v1();
+        case "product_id":
+            return nanoid();
+        case "session_token":
+            return SECURE_RNG()!.toString();
+        default:
+            throw new Error("Invalid use case. Valid options are: 'user_id', 'device_id', 'product_id', 'session_token'.");
+    }
+}
+
+
 function NON_SECURE_RNG(): number  {
     console.warn("WARNING: Using non-secure random number generator. This random number generator is NOT cryptographically secure and is not recommended for production use.");
     return Number(Math.random().toString().replace("0.", ""));
@@ -50,7 +66,8 @@ const idtools = {
     "randomNumber": {
         "default": NON_SECURE_RNG,
         "secure": SECURE_RNG
-    }
+    },
+    "smart": smartID
 }
 
 
