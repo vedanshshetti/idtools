@@ -1,6 +1,6 @@
 {
   "name": "@idtools/js",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "A collection of multiple ID tools and libraries for JavaScript",
   "main": "index.js",
   "dependencies": {
