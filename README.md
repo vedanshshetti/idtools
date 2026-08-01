@@ -1,4 +1,4 @@
-# 🚀 @idtools/prod v1.2.1
+# 🚀 @idtools/prod v1.2.3
 
 A tiny, fast, modern production‑grade ID generator designed for every JavaScript runtime — Node, Bun, Deno, browsers, edge runtimes, and more. Zero dependencies, instant startup, and a clean API.
 
