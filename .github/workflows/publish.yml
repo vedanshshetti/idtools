@@ -24,13 +24,13 @@ jobs:
         with:
           version: latest
       
-      # - name: Install Packages
-      #   run: pnpm install
+      - name: Install Packages
+        run: pnpm install
 
       - name: Publish production package
         working-directory: prod
-        run: deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --no-check
+        run: deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --allow-dirty --no-check
 
       - name: Publish insiders package
         working-directory: insiders
-        run: deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --no-check
+        run: deno publish --unstable-bare-node-builtins --allow-dirty --unstable-sloppy-imports --unstable-byonm --no-check
