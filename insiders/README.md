@@ -32,7 +32,7 @@ See https://jsr.io/@idtools/prod for installation steps.
 
 
 ## Side Note:  
-This is the Insiders Package, with the latest features which are possibly experimental, for stable, production environments, I'd highly recommend the production version instead:
+This is the Insiders Package, with the latest features which are possibly experimental. For stable, production environments with a real userbase, I'd highly recommend the production version instead:
 https://jsr.io/@idtools/prod
 
 > Thanks to github.com/ai and github.com/uuidjs for the respective `nanoid` and `uuid` libraries!
