@@ -18,6 +18,12 @@ jobs:
         uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6.0.9
+      
+      - name: Install Packages
+        run: pnpm install --freeze-lockfile
 
       - name: Publish production package
         working-directory: prod
