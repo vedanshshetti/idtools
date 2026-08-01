@@ -30,4 +30,9 @@ idtools.smart("user_id" | "device_id" | "product_id" | "session_token") // --> r
 ## 📦 Installation
 See https://jsr.io/@idtools/prod for installation steps.
 
-> Thanks to @ai and @uuid for the respective nanoid and uuid libraries
+
+## Early Access:  
+If you want to try new features before they land in production — and don’t mind occasional bugs — check out the Insiders build:
+https://jsr.io/@idtools/insiders
+
+> Thanks to github.com/ai and github.com/uuidjs for the respective `nanoid` and `uuid` libraries!
