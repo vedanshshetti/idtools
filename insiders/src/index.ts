@@ -51,6 +51,21 @@ function SECURE_RNG(): number | undefined{
     }
 }
 
+function randomChars(charSet: string, length: number): string {
+    let out = "";
+    for (let i = 0; i < length; i++) {
+        const rand = Math.floor(Math.random() * charSet.length);
+        out += charSet[rand];
+    }
+    return out;
+}
+
+function Hex128Bit(): string {  
+    const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    return `${randomChars(charset, 8)}-${randomChars(charset, 4)}-${randomChars(charset, 4)}-${randomChars(charset, 4)}-${randomChars(charset, 12)}`;
+}
+
+
 const idtools = {
     "nanoid": {
         production: nanoid,
@@ -67,7 +82,11 @@ const idtools = {
         "default": NON_SECURE_RNG,
         "secure": SECURE_RNG
     },
-    "smart": smartID
+    "smart": smartID,
+    "insiderFeatures": {
+        "hex128": Hex128Bit,
+        "randomString": randomChars
+    }
 }
 
 
