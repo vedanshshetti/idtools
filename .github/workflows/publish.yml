@@ -10,7 +10,12 @@ jobs:
     permissions:
       contents: read
       id-token: write
+
     steps:
-      - uses: actions/checkout@v6
-      - name: Publish package
-        run: npx jsr publish
+      - uses: actions/checkout@v4
+
+      - name: Publish production package
+        run: cd prod && npx jsr publish
+
+      - name: Publish insiders package
+        run: cd insiders && npx jsr publish
