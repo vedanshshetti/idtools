@@ -42,7 +42,7 @@ https://jsr.io/@idtools/prod
 
 - **hex128**: Generates a 128-bit styled alphanumeric ID with segmented groups (8-4-4-4-12). Use: `idtools.insiderFeatures.hex128()`.
 - **randomString**: Creates a random string from a provided character set and length. Use: `idtools.insiderFeatures.randomString(charSet, length)`.
-- **smart**: Returns IDs for specific use cases (`user_id`, `device_id`, `product_id`, `session_token`) using different strategies; `session_token` uses a secure RNG when available. Use: `idtools.smart("user_id" | "device_id" | "product_id" | "session_token")`.
+
 
 > Note: These features are experimental and may change between Insiders releases. Prefer the stable production package for production workloads.
 
