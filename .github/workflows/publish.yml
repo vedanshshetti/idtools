@@ -14,8 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
       - name: Publish production package
-        run: cd prod && npx jsr publish
+        working-directory: prod
+        run: deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --no-check
 
       - name: Publish insiders package
-        run: cd insiders && npx jsr publish
+        working-directory: insiders
+        run: deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --no-check
