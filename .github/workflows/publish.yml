@@ -25,7 +25,7 @@ jobs:
           version: latest
       
       - name: Install Packages
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Publish production package
         working-directory: prod
