@@ -21,6 +21,8 @@ jobs:
       
       - name: Setup pnpm
         uses: pnpm/action-setup@v6.0.9
+        with:
+          version: latest
       
       - name: Install Packages
         run: pnpm install --freeze-lockfile
