@@ -52,6 +52,7 @@ function SECURE_RNG(): number | undefined{
 }
 
 function randomChars(charSet: string, length: number): string {
+    console.warn("WARING: You are currently using an experimental feature from the @idtools/insiders package. Stability is NOT guaranteed.");
     let out = "";
     for (let i = 0; i < length; i++) {
         const rand = Math.floor(Math.random() * charSet.length);
@@ -61,6 +62,7 @@ function randomChars(charSet: string, length: number): string {
 }
 
 function Hex128Bit(): string {  
+    console.warn("WARING: You are currently using an experimental feature from the @idtools/insiders package. Stability is NOT guaranteed.");
     const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     return `${randomChars(charset, 8)}-${randomChars(charset, 4)}-${randomChars(charset, 4)}-${randomChars(charset, 4)}-${randomChars(charset, 12)}`;
 }
