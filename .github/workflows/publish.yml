@@ -24,8 +24,8 @@ jobs:
         with:
           version: latest
       
-      - name: Install Packages
-        run: pnpm install
+      # - name: Install Packages
+      #   run: pnpm install
 
       - name: Publish production package
         working-directory: prod
