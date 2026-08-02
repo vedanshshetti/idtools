@@ -46,7 +46,7 @@ function SECURE_RNG(): number | undefined{
     }
 }
 
-const idtools = {
+const idtools: Object = {
     "nanoid": {
         production: nanoid,
         nonSecure: nanoidNs
