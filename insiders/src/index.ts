@@ -62,7 +62,7 @@ function Hex128Bit(): string {
 }
 
 
-const idtools = {
+const idtools: Object = {
     "nanoid": {
         production: nanoid,
         nonSecure: nanoidNs
