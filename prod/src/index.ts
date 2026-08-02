@@ -59,7 +59,8 @@ const idtools = {
         "NIL": NIL
     },
     "randomNumber": SECURE_RNG,
-    "smart": smartID
+    "smart": smartID,
+    "isoTimestamp": new Date().toISOString()
 }
 
 

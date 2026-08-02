@@ -1,4 +1,4 @@
-# 🚀 @idtools/insiders 1.1.3
+# 🚀 @idtools/insiders 1.2.0
 
 A tiny, fast, modern production‑grade ID generator designed for every JavaScript runtime — Node, Bun, Deno, browsers, edge runtimes, and more. Zero dependencies, instant startup, and a clean API.
 
@@ -24,6 +24,9 @@ idtools.randomNumber.secure(); // --> generates a cryptographically secure rando
 
 // smart
 idtools.smart("user_id" | "device_id" | "product_id" | "session_token"); // --> returns an ID based on the specified use case
+
+// iso-timestamp
+idtools.isoTimestamp()
 ```
 
 ---
