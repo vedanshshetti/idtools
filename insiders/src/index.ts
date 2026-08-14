@@ -62,7 +62,7 @@ function Hex128Bit(): string {
 }
 
 
-const idtools: Object = {
+const idtools = {
     "nanoid": {
         production: nanoid,
         nonSecure: nanoidNs
@@ -75,13 +75,12 @@ const idtools: Object = {
         "NIL": NIL
     },
     "randomNumber": SECURE_RNG,
-    "smart": smartID,
     "isoTimestamp": new Date().toISOString(),
     "insiderFeatures": {
         "hex128": Hex128Bit,
         "randomString": randomChars
     }
-}
+} as const;
 
 
 export default idtools;
