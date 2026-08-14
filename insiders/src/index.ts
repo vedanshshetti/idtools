@@ -20,20 +20,6 @@ import { nanoid as nanoidNs } from "nanoid/non-secure";
 import { v1, v3, v4, v5, NIL } from "uuid";
 
 
-function smartID(use_case: "user_id" | "device_id" | "product_id" | "session_token"): string {
-    switch (use_case) {
-        case "user_id":
-            return v4();
-        case "device_id":
-            return v1();
-        case "product_id":
-            return nanoid();
-        case "session_token":
-            return SECURE_RNG()!.toString();
-        default:
-            throw new Error("Invalid use case. Valid options are: 'user_id', 'device_id', 'product_id', 'session_token'.");
-    }
-}
 
 function SECURE_RNG(): number | undefined{
     if (typeof crypto !== "undefined" && crypto.getRandomValues) {
@@ -61,8 +47,37 @@ function Hex128Bit(): string {
     return `${randomChars(charset, 8)}-${randomChars(charset, 4)}-${randomChars(charset, 4)}-${randomChars(charset, 4)}-${randomChars(charset, 12)}`;
 }
 
+function isoTs(): `${number}-${string}-${string}T${string}:${string}:${string}.${string}Z` {
+  const d = new Date();
 
-const idtools = {
+  const pad = (n: number, len = 2) => (String(n).padStart(len, "0"));
+
+  return (`${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}T${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}.${pad(d.getUTCMilliseconds(), 3)}Z`);
+}
+
+
+
+interface IdToolsAPI {
+    "nanoid": {
+        production: typeof nanoid;
+        nonSecure: typeof nanoidNs;
+    },
+    "uuid": {
+        "v1": typeof v1;
+        "v3": typeof v3;    
+        "v4": ()=> string;
+        "v5": typeof v5;
+        "NIL": "00000000-0000-0000-0000-000000000000";
+    },
+    "randomNumber": ()=> number | undefined;
+    "isoTimestamp": () => `${number}-${string}-${string}T${string}:${string}:${string}.${string}Z`;
+    "insiderFeatures": {
+        "hex128": ()=> string;
+        "randomString": (charset: string, length: number) => string;
+    }
+};
+
+const idtools: IdToolsAPI = {
     "nanoid": {
         production: nanoid,
         nonSecure: nanoidNs
@@ -75,7 +90,7 @@ const idtools = {
         "NIL": NIL
     },
     "randomNumber": SECURE_RNG,
-    "isoTimestamp": new Date().toISOString(),
+    "isoTimestamp": isoTs,
     "insiderFeatures": {
         "hex128": Hex128Bit,
         "randomString": randomChars

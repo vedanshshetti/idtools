@@ -8,7 +8,7 @@
     "uuid": "^14.0.1"
   },
   "scripts": {
-    "test": "node ./test/demo.js"
+    "test": "node ./test"
   },
   "repository": {
     "type": "git",
