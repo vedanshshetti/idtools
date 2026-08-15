@@ -1,4 +1,4 @@
-# 🚀 @idtools/prod v1.4.0
+# 🚀 @idtools/prod v1.4.1
 
 A tiny, fast, modern production‑grade ID generator designed for every JavaScript runtime — Node, Bun, Deno, browsers, edge runtimes, and more. Zero dependencies, instant startup, and a clean API.
 
@@ -18,11 +18,7 @@ idtools.uuid.v5() // --> generates a UUID V5
 idtools.uuid.NIL // --> exposes the NIL
 
 // randomNumber
-idtools.randomNumber.default() // --> generates a non-secure* random number, useful for when the JS Crypto library is unavailable
-idtools.randomNumber.secure() // --> generates a cryptographically secure random number
-
-// smart
-idtools.smart("user_id" | "device_id" | "product_id" | "session_token") // --> returns an ID based on the specified use case
+idtools.randomNumber() // --> generates a cryptographically secure random number
 
 // iso-timestamp
 idtools.isoTimestamp() // --> returns the current ISO-8601 timestamp

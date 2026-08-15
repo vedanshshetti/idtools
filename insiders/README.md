@@ -1,11 +1,11 @@
-# 🚀 @idtools/insiders 1.3.1
+# 🚀 @idtools/insiders
 
 A tiny, fast, modern production‑grade ID generator designed for every JavaScript runtime — Node, Bun, Deno, browsers, edge runtimes, and more. Zero dependencies, instant startup, and a clean API.
 
 ## Usage:
 
 ```js
-import idtools from "jsr:@idtools/prod"; // import from "@idtools/prod" when installed with "npx jsr add @idtools/prod" OR "pnpm install jsr:@idtools/prod"
+import idtools from "jsr:@idtools/insiders"; // import from "@idtools/insiders" when installed with "npx jsr add @idtools/insiders" OR "pnpm install jsr:@idtools/insiders"
 
 // NanoID
 idtools.nanoid.production(); // --> generates a secure nanoid
@@ -19,21 +19,21 @@ idtools.uuid.v5(); // --> generates a UUID V5
 idtools.uuid.NIL; // --> exposes the NIL
 
 // randomNumber
-idtools.randomNumber.default(); // --> generates a non-secure* random number, useful for when the JS Crypto library is unavailable
-idtools.randomNumber.secure(); // --> generates a cryptographically secure random number
-
-// smart
-idtools.smart("user_id" | "device_id" | "product_id" | "session_token"); // --> returns an ID based on the specified use case
+idtools.randomNumber(); // --> generates a cryptographically secure random number
 
 // iso-timestamp
-idtools.isoTimestamp()
+idtools.isoTimestamp();
+
+// Insider Features (experimental)
+idtools.insiderFeatures.hex128(); // --> generates a 128-bit styled alphanumeric ID with segmented groups (8-4-4-4-12)
+idtools.insiderFeatures.randomString(charSet, length); // --> creates a random string from a provided character set and length
 ```
 
 ---
 
 ## 📦 Installation
 
-See https://jsr.io/@idtools/prod for installation steps.
+See https://jsr.io/@idtools/insiders for installation steps.
 
 ## Side Note:
 
