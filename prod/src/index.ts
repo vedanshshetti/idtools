@@ -17,6 +17,7 @@ limitations under the License.
 
 import { nanoid } from "nanoid";
 import { nanoid as nanoidNs } from "nanoid/non-secure";
+import { ulid, type PRNG, type ULID } from "ulid";
 import { v1, v3, v4, v5, NIL } from "uuid";
 
 
@@ -52,6 +53,7 @@ interface IdToolsAPI {
     },
     "randomNumber": ()=> number | undefined;
     "isoTimestamp": () => `${number}-${string}-${string}T${string}:${string}:${string}.${string}Z`;
+    "ulid": (seedTime?: number | undefined, prng?: PRNG | undefined) => ULID;
 };
 
 const idtools: IdToolsAPI = {
@@ -67,7 +69,8 @@ const idtools: IdToolsAPI = {
         "NIL": NIL
     },
     "randomNumber": SECURE_RNG,
-    "isoTimestamp": isoTs
+    "isoTimestamp": isoTs,
+    "ulid": ulid
 }
 
 

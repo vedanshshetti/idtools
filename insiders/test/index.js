@@ -53,3 +53,13 @@ console.log(
     - 128-bit Hexadecimal String: ${hex128}
     - randomString (charset "abcdefghijklmnopqrstuvwxyz0123456789"): ${randomChars}
 `);
+
+const ulidValue = idtools.ulid();
+console.log("ULID:", ulidValue);
+
+// ULID must be a 26‑character Crockford Base32 string
+assert(
+  typeof ulidValue === "string" &&
+  /^[0-9A-HJKMNP-TV-Z]{26}$/.test(ulidValue),
+  "Test #12: ULID (lexicographically sortable Base32 identifier)"
+);

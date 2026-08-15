@@ -27,6 +27,17 @@ idtools.isoTimestamp();
 // Insider Features (experimental)
 idtools.insiderFeatures.hex128(); // --> generates a 128-bit styled alphanumeric ID with segmented groups (8-4-4-4-12)
 idtools.insiderFeatures.randomString(charSet, length); // --> creates a random string from a provided character set and length
+
+// ULID
+idtools.ulid() 
+// --> generates a Universally Unique Lexicographically Sortable Identifier (ULID)
+// --> always 26 characters, Base32, sortable by creation time
+
+idtools.ulid(Date.now()) 
+// --> generates a ULID using a custom seed timestamp
+
+idtools.ulid(Date.now(), (len) => crypto.getRandomValues(new Uint8Array(len)))
+// --> generates a ULID using a custom PRNG (advanced usage)
 ```
 
 ---
@@ -51,4 +62,4 @@ https://jsr.io/@idtools/prod
 
 
 
-> Thanks to github.com/ai and github.com/uuidjs for the respective `nanoid` and `uuid` libraries!
+> Thanks to github.com/ai, github.com/ulid and github.com/uuidjs for the respective `nanoid`, `ulid` and `uuid` libraries!

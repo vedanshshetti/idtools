@@ -4,8 +4,9 @@
   "description": "A collection of multiple ID tools and libraries for JavaScript",
   "main": "index.js",
   "dependencies": {
-    "nanoid": "^6.0.1",
-    "uuid": "^14.0.1"
+    "nanoid": "6.0.1",
+    "uuid": "14.0.1",
+    "ulid": "3.0.2"
   },
   "devDependencies": {},
   "scripts": {

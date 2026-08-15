@@ -22,6 +22,17 @@ idtools.randomNumber() // --> generates a cryptographically secure random number
 
 // iso-timestamp
 idtools.isoTimestamp() // --> returns the current ISO-8601 timestamp
+
+// ULID
+idtools.ulid() 
+// --> generates a Universally Unique Lexicographically Sortable Identifier (ULID)
+// --> always 26 characters, Base32, sortable by creation time
+
+idtools.ulid(Date.now()) 
+// --> generates a ULID using a custom seed timestamp
+
+idtools.ulid(Date.now(), (len) => crypto.getRandomValues(new Uint8Array(len)))
+// --> generates a ULID using a custom PRNG (advanced usage)
 ```
 
 ---
@@ -34,4 +45,4 @@ See https://jsr.io/@idtools/prod for installation steps.
 If you want to try new features before they land in production — and don’t mind occasional bugs — check out the Insiders build:
 https://jsr.io/@idtools/insiders
 
-> Thanks to github.com/ai and github.com/uuidjs for the respective `nanoid` and `uuid` libraries!
+> Thanks to github.com/ai, github.com/ulid and github.com/uuidjs for the respective `nanoid`, `ulid` and `uuid` libraries!

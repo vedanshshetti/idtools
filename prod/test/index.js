@@ -38,3 +38,13 @@ assert(typeof randomNumber === "number" || randomNumber === undefined, "Test #8:
 const isoTimestamp = idtools.isoTimestamp();
 console.log("ISO Timestamp:", isoTimestamp);
 assert(typeof isoTimestamp === "string" && isoTimestamp.length === 24, "Test #9: ISO Timestamp");
+
+const ulidValue = idtools.ulid();
+console.log("ULID:", ulidValue);
+
+// ULID must be a 26‑character Crockford Base32 string
+assert(
+  typeof ulidValue === "string" &&
+  /^[0-9A-HJKMNP-TV-Z]{26}$/.test(ulidValue),
+  "Test #12: ULID (lexicographically sortable Base32 identifier)"
+);
