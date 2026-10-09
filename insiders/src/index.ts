@@ -32,8 +32,15 @@ function SECURE_RNG(): number | undefined{
     }
 }
 
-function randomChars(charSet: string, length: number): string {
+/**
+ * 
+ * @param charSet Charset to be used, @default "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+ * @param length Length of string to be generated
+ * @returns 
+ */
+function randomChars(charSet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", length: number): string {
     console.warn("WARNING: You are currently using an experimental feature from the @idtools/insiders package. Stability is NOT guaranteed.");
+    if(length<=0) return "";
     let out = "";
     for (let i = 0; i < length; i++) {
         const rand = Math.floor(Math.random() * charSet.length);
