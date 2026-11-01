@@ -21,13 +21,13 @@ import { ulid, type PRNG, type ULID } from "ulid";
 import { v1, v3, v4, v5, NIL } from "uuid";
 
 
-function SECURE_RNG(): number | undefined{
+function SECURE_RNG(): number | undefined {
     if (typeof crypto !== "undefined" && crypto.getRandomValues) {
         const array = new Uint32Array(1);
         crypto.getRandomValues(array);
         return array[0];
     } else {
-        throw new Error("Secure random number generator is not available in this environment.");
+        throw new Error(`[${new Date().toISOString()}]: Secure random number generator is not available in this environment.`);
     }
 }
 
